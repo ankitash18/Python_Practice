@@ -176,12 +176,110 @@ def master_yoda(text):
 
 print(master_yoda('I am home') )
 
+mylist=['a','b','c']
+
+'--'.join(mylist)
+
+
 #####USING JOIN#######
+def master_yoda1(text):
+    wordlist = text.split()
+    reversed_word_list = wordlist[::-1]
+    return ' '.join(reversed_word_list)
+
+print(master_yoda1('I am home') )
+
+#### ALMOST THERE: Given an integer n, return True if n is within 10 of either 100 or 200\n"
+
+def almost_there(n):
+   return  ((abs(100-n) <= 10) or (abs(200-n) <= 10))
 
 
+print(almost_there(104))
 
 
+######level 3 questions..
+#Given a list of ints, return True if the array contains a 3 next to a 3 somewhere.
+#has_33([1, 3, 3]) → True\n",
+   # "    has_33([1, 3, 1, 3])→ False
+ #   "    has_33([3, 1, 3]) → False"
 
 
+def has_33(nums):
+
+    for i in range(0, len(nums)-1):
+        if nums[i] == 3 and nums[i + 1] == 3:
+            return True
+
+        return False
+
+print(has_33([1,3,1,3]))
+
+def has_331(nums):  ##use slicing
+
+    for i in range(0, len(nums)-1):
+        if nums[i:i+2] == [3,3]:
+            return True
+
+        return False
+
+print(has_331([1,3,3,3]))
 
 
+#### PAPER DOLL: Given a string, return a string where for every character in the original there are three characters
+
+
+def paper_doll(n):
+    result = ''
+
+    for char in n:
+        result += char*3
+
+    return  result
+
+print(paper_doll('Hello'))
+
+#### BLACKJACK: Given three integers between 1 and 11, if their sum is less than or equal to 21, return their sum. If their sum exceeds 21 *and* there's an eleven, reduce the total sum by 10. Finally, if the sum (even after adjustment) exceeds 21, return 'BUST'
+
+def blackjack(a,b,c):
+    if sum([a,b,c]) <=21:
+        return sum([a,b,c])
+    elif 11 in [a,b,c] and sum([a,b,c]) <=31:
+        return sum([a,b,c])-10
+    else:
+        return 'BUST'
+
+
+print(blackjack(9,9,9))
+
+
+#### SUMMER OF '69: Return the sum of the numbers in the array, except ignore sections of numbers starting with a 6 and extending to the next 9 (every 6 will be followed by at least one 9). Return 0 for no numbers.
+
+
+#  summer_69([1, 3, 5]) --> 9\n",
+#summer_69([4, 5, 6, 7, 8, 9]) --> 9\n",
+# summer_69([2, 1, 6, 9, 11]) --> 14"
+
+
+def summer_69(arr):
+
+    total =0
+    add = True
+    for num in arr:
+        while add:
+            if num != 6:
+                total += num
+                break
+            else:
+                add = False
+        while not add:
+            if num != 9:
+                break
+            else:
+                add = True
+                break
+
+    return total
+
+print(summer_69([1, 3, 5]))
+print(summer_69([4, 5, 6, 7, 8, 9]))
