@@ -283,3 +283,155 @@ def summer_69(arr):
 
 print(summer_69([1, 3, 5]))
 print(summer_69([4, 5, 6, 7, 8, 9]))
+
+
+#### SPY GAME: Write a function that takes in a list of integers and returns True if it contains 007 in order\n",
+
+
+def spy_code(nums):
+    code = [0,0,7,'x']
+
+    for num in nums:
+        if num == code[0]:
+            code.pop(0)  # code.remove(num) also works\n"
+
+
+    return len(code) == 1
+
+print(spy_code([1,2,4,0,0,7,5]))
+
+#### COUNT PRIMES: Write a function that returns the *number* of prime numbers that exist up to and including a given number\n",
+
+
+def count_primes(num):
+
+    if num < 2:
+        return 0
+    ## 2 or greater
+
+    primes = [2]
+    x =3
+
+    while x <= num:
+        for y in primes:
+            if x%y ==0:
+                x += 2
+                break
+        else:
+            primes.append(x)
+            x += 2
+
+    print(primes)
+    return  len(primes)
+
+
+print(count_primes(100))
+
+#### PRINT BIG: Write a function that takes in a single letter, and returns a 5x5 representation of that letter\n
+
+
+def print_big(letter):
+       patterns = {1:'  *  ',2:' * * ',3:'*   *',4:'*****',5:'**** ',6:'   * ',7:' *   ',8:'*   * ',9:'*    '}
+       alphabet = {'A':[1,2,4,3,3],'B':[5,3,5,3,5],'C':[4,9,9,9,4],'D':[5,3,3,3,5],'E':[4,9,4,9,4]}
+
+       for pattern in alphabet[letter.upper()]:
+
+             print(patterns[pattern])
+
+print(print_big('a'))
+
+#**Write a function that computes the volume of a sphere given its radius.**
+
+def vol(rad):
+    result =  (4/3)*(3.14)*(rad**3)
+
+    return result
+
+
+print(vol(2.0))
+
+#**Write a function that checks whether a number is in a given range (inclusive of high and low)**
+
+
+def ran_check(num,low,high):
+    if num in range(low,high):
+        print(f' {num} is in the range')
+    else:
+        print(f' {num} is not  in the range')
+
+
+ran_check(3,1,10)
+
+#**Write a Python function that accepts a string and calculates the number of upper case letters and lower case letters.**
+
+def up_low(s):
+    d = {"upper":0,"lower":0}
+
+    for c in s:
+        if c.isupper():
+            d["upper"] +=1
+        elif c.islower():
+            d["lower"] +=1
+        else:
+            pass
+    print(f'originla string {s}')
+    print(f'No. of Upper case characters {d["upper"]}')
+    print(f'No. of lower case characters {d["lower"]}')
+
+up_low('Hello Mr. Rogers, how are you this fine Tuesday')
+
+
+
+#**Write a Python function that takes a list and returns a new list with unique elements of the first list.
+
+
+def unique_list(l):
+    x =[]
+    for a in l:
+        if a not in x:
+            x.append(a)
+
+    return x
+
+
+print(unique_list([1,1,1,1,2,2,3,3,3,3,4,5]))
+
+
+
+#**Write a Python function to multiply all the numbers in a list.**
+
+def multiply(numbers):
+    total = 1
+    for x in numbers:
+        total *= x
+
+    return total
+
+print(multiply([1,2,3,-4]))
+
+
+#**Write a Python function that checks whether a passed string is palindrome or not.**
+
+def palindrome(s):
+    s = s.replace(' ', '')
+    return  s == s[:: -1]
+
+
+print(palindrome('helleh'))
+
+
+#Write a Python function to check whether a string is pangram or not
+
+
+#Note : Pangrams are words or sentences containing every letter of the alphabet at least once.\n",
+ #For example : \"The quick brown fox jumps over the lazy dog\"\n",
+
+import string
+
+def ispangram(str1,alphabet=string.ascii_lowercase):
+    alphaset = set(alphabet)
+    return alphaset <= set(str1.lower())
+
+
+print(ispangram("The quick brown fox jumps over the lazy dog"))
+print(ispangram("The quick brown fox jumps over the lazy dog"))
