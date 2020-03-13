@@ -126,5 +126,42 @@ sam = Dog(age =2,breed = 'lab',name = 'samy')
 print(sam.age)
 
 
+####..regualr expression
+
+import re
+
+patterns = ['term1','term2']
+
+text = 'this is the string with term1 but not other term'
+
+for pattern in patterns:
+    print(f"searhcing for {pattern} ")
+
+    if re.search(pattern,text):
+        print("matc hwas found")
+
+    else:
+        print("no match found")
 
 
+match = re.search(patterns[0],text)
+
+print(match)
+
+split_term = '@'
+
+phrase = 'wht is your email,is it hello@gmail.com'
+
+print(re.split(split_term,phrase))
+
+print(re.findall('match','here is one match,here is other match'))
+
+def multi_re_find(patterns,phrase):
+    #Takes in a list of regex patterns
+   # Prints a list of all matches
+    for pattern in patterns:
+        print('Searching the phrase using the re check: %r' %(pattern))
+        print(re.findall(pattern,phrase))
+
+
+multi_re_find(patterns,phrase)
