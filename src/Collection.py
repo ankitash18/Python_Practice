@@ -111,3 +111,33 @@ with open('NEWFILE.txt',mode = 'w') as new_file:
     #print(contents)
 
 #myfile.close()
+
+####enumerate#####
+#enumertae is an object which yield pairs of  index n items
+
+a =[1,2,3]
+
+for index,items in enumerate(a):
+   print("item %s has index %s" %(items,index))
+
+import time
+
+i =0
+
+while True:
+   print("hello")
+   i = i+1
+   if(i > 3):
+      print("end of the loop")
+      break
+   time.sleep(i)
+
+
+s ="http://www.pythonhow.com/data/universe.txt"
+
+count_s = s.count("w")
+
+print(count_s)
+
+
+
