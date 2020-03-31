@@ -31,3 +31,20 @@ input = ["flower","flo","flon"]
 a = commonprefix(input)
 
 print(a)
+
+
+
+
+def common(s1,s2):
+    commonlength = min(len(s1),len(s2))
+
+    for i in range(0,commonlength):
+        if s1[i] != s2[i]:
+            return s1[:i]
+
+    return s1[:commonlength]
+
+
+a = common("hello","hell")
+print(a)
+
