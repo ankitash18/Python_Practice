@@ -31,3 +31,4 @@ def jumpgame(nums):
 nums =[2,3,1,1,4]
 a = jumpgame(nums)
 print(a)
+
