@@ -11,3 +11,11 @@ def reversestr(s):
 
 a= reversestr('hello world')
 print(a)
+
+## List of Words
+words = ['Anna', 'Car', 'Civic', 'Screen', 'Level', 'Cat', 'Mom']
+
+## List comprehension that constructs a list of palindromes from names list
+palindromes = [items for items in words if items.lower() == items[::-1].lower()]
+
+print(palindromes)
